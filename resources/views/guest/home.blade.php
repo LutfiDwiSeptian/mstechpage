@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MRO Aviation Services | MSTECH</title>
+    <title>MSTECH</title>
     <meta name="description"
         content="Integrated Aircraft Maintenance, Repair & Overhaul services for reliable fleet performance." />
     <link rel="icon" type="image/png" href="{{ asset('logo/mstech.png') }}" />
@@ -297,10 +297,35 @@
         } else { fades.forEach(el => el.classList.add('visible')); }
 
         const modal = document.getElementById('leadModal');
-        function openModal() { modal.classList.remove('hidden'); modal.classList.add('flex'); }
-        function closeModal() { modal.classList.add('hidden'); modal.classList.remove('flex'); }
+        const nameInput = document.getElementById('name');
+        function openModal() {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            setTimeout(()=> nameInput?.focus(), 60);
+        }
+        function closeModal() {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            // mark dismissed for this session
+            sessionStorage.setItem('leadModalDismissed', '1');
+        }
         window.openModal = openModal; window.closeModal = closeModal;
         modal.addEventListener('mousedown', e => { if (e.target === modal) { closeModal(); } });
+
+        // Auto-open modal on first visit of the session (unless already submitted or dismissed)
+        @if(!session('success'))
+        if(!sessionStorage.getItem('leadModalDismissed')){
+            // slight delay so page paints first
+            setTimeout(openModal, 500);
+        }
+        @endif
+
+        // When form submits successfully (handled server-side), prevent re-show
+        // We set the flag optimistically on submit too
+        const leadForm = modal.querySelector('form');
+        leadForm?.addEventListener('submit', ()=>{
+            sessionStorage.setItem('leadModalDismissed','1');
+        });
 
         // Mobile menu
         const mobileToggle = document.getElementById('mobileToggle');
