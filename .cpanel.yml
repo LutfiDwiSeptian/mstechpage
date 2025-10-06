@@ -1,5 +1,51 @@
 ---
 deployment:
   tasks:
+    # 1. Set target path (ubah jika berbeda) – tanpa trailing slash lebih aman
     - export DEPLOYPATH=/home/mstj9215/public_html
-    - /bin/cp -R * $DEPLOYPATH
+
+    # 2. Sinkronkan source code ke public_html kecuali item sensitif / besar
+    - /bin/rsync -av --delete \
+        --exclude=".git" \
+        --exclude=".cpanel.yml" \
+        --exclude="node_modules" \
+        --exclude="vendor" \
+        --exclude="tests" \
+        --exclude=".env" \
+        ./ $DEPLOYPATH
+
+    # 3. Masuk ke direktori deploy
+    - cd $DEPLOYPATH
+
+    # 4. Aktifkan maintenance mode (abaikan error jika sudah aktif)
+    - php artisan down || true
+
+    # 5. Install dependency composer (production)
+    - /opt/cpanel/composer/bin/composer install --no-dev --prefer-dist --optimize-autoloader
+
+    # 6. Buat symlink storage (abaikan jika sudah ada)
+    - php artisan storage:link || true
+
+    # 7. Bersihkan seluruh cache lama
+    - php artisan config:clear || true
+    - php artisan route:clear || true
+    - php artisan view:clear || true
+    - php artisan cache:clear || true
+
+
+    # 9. Rebuild cache / optimisasi
+    - php artisan config:cache
+    - php artisan route:cache
+    - php artisan view:cache || true
+    - php artisan event:cache || true
+
+    # 10. Optimalkan autoload (biasanya sudah oleh composer, tapi untuk jaga-jaga)
+    - /opt/cpanel/composer/bin/composer dump-autoload -o
+
+    # 11. Set permission direktori yang perlu write
+    - find storage -type d -exec chmod 775 {} \; || true
+    - find storage -type f -exec chmod 664 {} \; || true
+    - chmod -R 775 bootstrap/cache || true
+
+    # 12. Matikan maintenance mode
+    - php artisan up || true
