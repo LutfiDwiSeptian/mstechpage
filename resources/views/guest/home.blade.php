@@ -122,15 +122,15 @@
             <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 text-sm fade-up">
                 <div class="bg-slate-50 hover:bg-white border border-slate-200 rounded-xl p-4 transition">
                     <p class="font-semibold text-slate-800 mb-1">Base Maintenance</p>
-                    <p class="text-slate-500 leading-relaxed">Turnaround & defect rectification.</p>
+                    <p class="text-slate-500 leading-relaxed">Maintenance, Repair and Overhaul of various aircraft. We provide 365/24/7 maintenance service.</p>
                 </div>
                 <div class="bg-slate-50 hover:bg-white border border-slate-200 rounded-xl p-4 transition">
                     <p class="font-semibold text-slate-800 mb-1">Line Maintenance</p>
-                    <p class="text-slate-500 leading-relaxed">C / D checks & structural work.</p>
+                    <p class="text-slate-500 leading-relaxed">Tailored for aircraft operators in Indonesia and the Southeast Asia region.</p>
                 </div>
                 <div class="bg-slate-50 hover:bg-white border border-slate-200 rounded-xl p-4 transition">
                     <p class="font-semibold text-slate-800 mb-1">NDT and Specialized Service</p>
-                    <p class="text-slate-500 leading-relaxed">Test & reliability.</p>
+                    <p class="text-slate-500 leading-relaxed">Specialized inspections carried out by experienced NDT, Borescope and aircraft painting personnel.</p>
                 </div>
             </div>
         </div>
