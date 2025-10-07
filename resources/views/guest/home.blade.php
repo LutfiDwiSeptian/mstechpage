@@ -156,31 +156,6 @@
                     </li>
                 </ul>
             </div>
-            <div class="fade-up">
-                <div class="bg-slate-50 rounded-xl p-5 border border-slate-200">
-                    <p class="font-semibold text-slate-700 mb-4 text-sm">Sample Metrics</p>
-                    <div class="grid grid-cols-2 gap-4 text-center text-xs">
-                        <div class="bg-white rounded-lg p-3 border border-slate-200">
-                            <p class="font-bold text-[var(--c-brand)]">99.4%</p>
-                            <p class="mt-1 text-[10px] tracking-wide text-slate-500">DISPATCH</p>
-                        </div>
-                        <div class="bg-white rounded-lg p-3 border border-slate-200">
-                            <p class="font-bold text-[var(--c-brand)]">2.1h</p>
-                            <p class="mt-1 text-[10px] tracking-wide text-slate-500">AOG DELAY</p>
-                        </div>
-                        <div class="bg-white rounded-lg p-3 border border-slate-200">
-                            <p class="font-bold text-[var(--c-brand)]">98%</p>
-                            <p class="mt-1 text-[10px] tracking-wide text-slate-500">COMPLIANCE</p>
-                        </div>
-                        <div class="bg-white rounded-lg p-3 border border-slate-200">
-                            <p class="font-bold text-[var(--c-brand)]">
-                                < 3%</p>
-                                    <p class="mt-1 text-[10px] tracking-wide text-slate-500">REPEAT</p>
-                        </div>
-                    </div>
-                    <p class="text-[11px] text-slate-400 mt-4">Illustrative only.</p>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -244,42 +219,48 @@
             <form method="POST" action="{{ route('form.store') }}" class="space-y-4 text-black" autocomplete="off">
                 @csrf
                 <div>
-                    <label class="block text-sm mb-1 font-medium text-black" for="name">Full Name</label>
+                    <label class="block text-sm mb-1 font-medium text-white" for="name">Full Name</label>
                     <input name="name" id="name" type="text" required maxlength="255" value="{{ old('name') }}"
                         class="w-full px-3 py-2.5 border rounded-md bg-white text-black placeholder:text-black focus:outline-none focus:ring-2 focus:ring-blue-500 {{ $errors->has('name') ? 'border-red-400' : 'border-slate-300' }}" />
                     @error('name')<p class="mt-1 text-xs text-red-600">{{ $message }}</p>@enderror
                 </div>
                 <div>
-                    <label class="block text-sm mb-1 font-medium text-black" for="line_of_business">Line of Business</label>
+                    <label class="block text-sm mb-1 font-medium text-white" for="line_of_business">Line of Business</label>
                     <input name="line_of_business" id="line_of_business" type="text" required maxlength="255" value="{{ old('line_of_business') }}"
                         class="w-full px-3 py-2.5 border rounded-md bg-white text-black placeholder:text-black focus:outline-none focus:ring-2 focus:ring-blue-500 {{ $errors->has('line_of_business') ? 'border-red-400' : 'border-slate-300' }}" />
                     @error('line_of_business')<p class="mt-1 text-xs text-red-600">{{ $message }}</p>@enderror
                 </div>
                 <div class="grid sm:grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-sm mb-1 font-medium text-black" for="company_name">Company</label>
+                        <label class="block text-sm mb-1 font-medium text-white" for="company_name">Company</label>
                         <input name="company_name" id="company_name" type="text" maxlength="255" value="{{ old('company_name') }}"
                             class="w-full px-3 py-2.5 border rounded-md bg-white text-black placeholder:text-black focus:outline-none focus:ring-2 focus:ring-blue-500 {{ $errors->has('company_name') ? 'border-red-400' : 'border-slate-300' }}" />
                         @error('company_name')<p class="mt-1 text-xs text-red-600">{{ $message }}</p>@enderror
                     </div>
                     <div>
-                        <label class="block text-sm mb-1 font-medium text-black" for="phone_number">Phone Number</label>
+                        <label class="block text-sm mb-1 font-medium text-white" for="phone_number">Phone Number</label>
                         <input name="phone_number" id="phone_number" type="text" required maxlength="20" value="{{ old('phone_number') }}"
                             class="w-full px-3 py-2.5 border rounded-md bg-white text-black placeholder:text-black focus:outline-none focus:ring-2 focus:ring-blue-500 {{ $errors->has('phone_number') ? 'border-red-400' : 'border-slate-300' }}" />
                         @error('phone_number')<p class="mt-1 text-xs text-red-600">{{ $message }}</p>@enderror
                     </div>
                 </div>
                 <div>
-                    <label class="block text-sm mb-1 font-medium text-black" for="job_title">Job Title (Optional)</label>
+                    <label class="block text-sm mb-1 font-medium text-white" for="job_title">Job Title</label>
                     <input name="job_title" id="job_title" type="text" maxlength="255" value="{{ old('job_title') }}"
                         class="w-full px-3 py-2.5 border rounded-md bg-white text-black placeholder:text-black focus:outline-none focus:ring-2 focus:ring-blue-500 {{ $errors->has('job_title') ? 'border-red-400' : 'border-slate-300' }}" />
                     @error('job_title')<p class="mt-1 text-xs text-red-600">{{ $message }}</p>@enderror
                 </div>
                 <div>
-                    <label class="block text-sm mb-1 font-medium text-black" for="email">Work Email</label>
+                    <label class="block text-sm mb-1 font-medium text-white" for="email">Work Email</label>
                     <input name="email" id="email" type="email" required maxlength="255" value="{{ old('email') }}"
                         class="w-full px-3 py-2.5 border rounded-md bg-white text-black placeholder:text-black focus:outline-none focus:ring-2 focus:ring-blue-500 {{ $errors->has('email') ? 'border-red-400' : 'border-slate-300' }}" />
                     @error('email')<p class="mt-1 text-xs text-red-600">{{ $message }}</p>@enderror
+                </div>
+                <div class="flex items-center justify-between pt-1">
+                    <button type="submit" class="group px-5 py-2.5 rounded-md bg-blue-600 text-white font-semibold hover:bg-blue-700 shadow flex items-center gap-2 text-sm">
+                        <span>Submit</span>
+                        <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
+                    </button>
                 </div>
             </form>
         </div>
