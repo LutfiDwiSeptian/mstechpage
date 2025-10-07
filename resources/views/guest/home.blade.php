@@ -165,7 +165,7 @@
                                 <li class="flex items-center gap-2"><span class="text-blue-600">•</span> Format: PDF (Optimized)</li>
                                 <li class="flex items-center gap-2"><span class="text-blue-600">•</span> Language: English</li>
                             </ul>
-                            <div class="mt-auto flex flex-wrap gap-3">
+                            <div class="mt-auto flex flex-wrap gap-3 md:justify-center">
                                 {{-- Pastikan file berada di: public/files/mstech_profiles.pdf --}}
                                 <a href="{{ asset('files/mstech_profiles.pdf') }}"
                                    download="MSTECH_Company_Profile.pdf"
@@ -254,9 +254,10 @@
             <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mb-3">Ready to Discuss?</h2>
             <p class="text-slate-600 max-w-2xl mx-auto mb-6 text-sm md:text-base">Let us help you strengthen fleet
                 reliability & availability.</p>
-            <button onclick="openModal()"
-                class="bg-[var(--c-brand)] hover:bg-[var(--c-brand-dark)] text-white font-semibold px-8 py-4 rounded-lg text-sm shadow">Start
-                Conversation</button>
+            <a href="mailto:office@mstech-pt.com"
+               class="bg-[var(--c-brand)] hover:bg-[var(--c-brand-dark)] text-white font-semibold px-8 py-4 rounded-lg text-sm shadow inline-block">
+                Start Conversation
+            </a>
         </div>
     </section>
 
