@@ -239,7 +239,7 @@
                 <div class="mb-2 flex justify-center">
                     <img src="{{ asset('logo/mstech.png') }}" alt="MSTECH" class="h-12 w-auto drop-shadow-sm" />
                 </div>
-                <p class="mt-1 text-[11px] md:text-xs max-w-xs">Your data will only be used for collection purposes and won’t be shared or used for anything else.</p>
+                <p class="mt-1 text-[11px] md:text-xs max-w-xs text-white">Your data will only be used for collection purposes and won’t be shared or used for anything else.</p>
             </div>
             <form method="POST" action="{{ route('form.store') }}" class="space-y-4 text-black" autocomplete="off">
                 @csrf
