@@ -135,7 +135,67 @@
             </div>
         </div>
     </section>
+    <!-- Download -->
+    <section id="download" class="relative py-20 bg-gradient-to-br from-white via-blue-50 to-blue-100 border-t border-slate-200 overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none opacity-40"
+             style="background-image: radial-gradient(circle at 20% 30%, rgba(37,99,235,.25), transparent 60%), radial-gradient(circle at 80% 70%, rgba(14,165,233,.25), transparent 55%);">
+        </div>
+        <div class="max-w-5xl mx-auto px-5 relative fade-up">
+            <div class="text-center mb-10">
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mb-3">Download Company Profile</h2>
+                <p class="text-slate-600 text-sm md:text-base max-w-2xl mx-auto">
+                    Dapatkan profil perusahaan kami dalam format PDF untuk referensi lebih lanjut mengenai layanan & kapabilitas MSTECH.
+                </p>
+            </div>
 
+            <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+                <div class="md:col-span-2">
+                    <div class="group relative h-full rounded-2xl border bg-white border-slate-200 shadow-sm overflow-hidden flex flex-col md:flex-row">
+                        <div class="w-full md:w-52 aspect-[4/3] md:aspect-auto bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center">
+                            <div class="text-white flex flex-col items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14 mb-2 opacity-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-8.4a2.4 2.4 0 0 0-2.4-2.4H6.9a2.4 2.4 0 0 0-2.4 2.4v12.3a2.4 2.4 0 0 0 2.4 2.4h4.98M8.25 7.5h7.5M8.25 11.25h4.5M16.5 18v-5.25m0 5.25 2.25-2.25M16.5 18l-2.25-2.25" />
+                                </svg>
+                                <span class="text-xs tracking-wide font-medium uppercase">PDF</span>
+                            </div>
+                        </div>
+                        <div class="flex-1 p-5 md:p-6 flex flex-col">
+                            <h3 class="text-lg font-semibold text-slate-800 mb-2">MSTECH Company Profile</h3>
+                            <ul class="text-xs text-slate-500 space-y-1 mb-5">
+                                <li class="flex items-center gap-2"><span class="text-blue-600">•</span> Format: PDF (Optimized)</li>
+                                <li class="flex items-center gap-2"><span class="text-blue-600">•</span> Language: English</li>
+                            </ul>
+                            <div class="mt-auto flex flex-wrap gap-3">
+                                {{-- Pastikan file berada di: public/files/mstech_profiles.pdf --}}
+                                <a href="{{ asset('files/mstech_profiles.pdf') }}"
+                                   download="MSTECH_Company_Profile.pdf"
+                                   type="application/pdf"
+                                   class="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium shadow-sm hover:shadow transition">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none"
+                                         viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                              d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M7.5 11.25 12 15.75m0 0 4.5-4.5M12 15.75V3"/>
+                                    </svg>
+                                    Download
+                                </a>
+                                <a href="{{ asset('files/mstech_profiles.pdf') }}"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   class="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-white border border-slate-300 hover:border-blue-500 hover:text-blue-600 text-slate-700 text-sm font-medium transition">
+                                    Preview
+                                </a>
+                            </div>
+                            @php
+                                $fileExists = file_exists(public_path('files/mstech_profiles.pdf'));
+                            @endphp
+                            @unless($fileExists)
+                                <p class="mt-4 text-xs text-red-600">File belum tersedia. Letakkan file di folder public/files/ dengan nama: mstech_profiles.pdf</p>
+                            @endunless
+                        </div>
+                        <span class="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-600 via-indigo-500 to-cyan-500"></span>
+                    </div>
+                </div>
+    </section>
     <!-- Capabilities -->
     <section id="capabilities" class="py-16 bg-white border-t border-slate-200">
         <div class="max-w-6xl mx-auto px-5 grid lg:grid-cols-2 gap-12 items-start">
