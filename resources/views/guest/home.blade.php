@@ -281,18 +281,6 @@
                         class="w-full px-3 py-2.5 border rounded-md bg-white text-black placeholder:text-black focus:outline-none focus:ring-2 focus:ring-blue-500 {{ $errors->has('email') ? 'border-red-400' : 'border-slate-300' }}" />
                     @error('email')<p class="mt-1 text-xs text-red-600">{{ $message }}</p>@enderror
                 </div>
-                <div id="privacyNote" class="text-[10px] leading-snug text-black flex gap-2 pt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 12.75v-2.25m0 6.75h.008v.008H12v-.008z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12c0 4.636-3.582 8.455-8.138 8.962a1.04 1.04 0 0 1-.724-.217L12 20.25l-.138.495a1.04 1.04 0 0 1-.724.217C6.582 20.455 3 16.636 3 12V7.64a1 1 0 0 1 .553-.894l8-4a1 1 0 0 1 .894 0l8 4A1 1 0 0 1 21 7.64V12z"/></svg>
-                    <span>Your information is used only to respond to this inquiry. We do not sell, share, or use your data for unrelated purposes.</span>
-                </div>
-                <div class="flex items-center justify-between pt-1">
-                    <label class="flex items-center gap-2 text-xs text-black"><input type="checkbox"
-                            class="rounded border-slate-300" /> Subscribe</label>
-                    <button type="submit" class="group px-5 py-2.5 rounded-md bg-blue-600 text-white font-semibold hover:bg-blue-700 shadow flex items-center gap-2 text-sm">
-                        <span>Submit</span>
-                        <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
-                    </button>
-                </div>
             </form>
         </div>
     </div>
