@@ -231,49 +231,67 @@
     </footer>
 
     <!-- Modal -->
-    <div id="leadModal"
-        class="fixed inset-0 hidden items-center justify-center bg-slate-900/70 backdrop-blur-sm z-50 px-4"
-        role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-        <div
-            class="relative bg-white dark:bg-slate-900 p-6 md:p-8 rounded-2xl w-full max-w-lg shadow-2xl ring-1 ring-slate-200 dark:ring-slate-700">
-            <button onclick="closeModal()"
-                class="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-2xl font-bold leading-none"
-                aria-label="Close modal">&times;</button>
-            <h3 id="modalTitle" class="text-2xl font-bold gradient-text mb-4">Request Contact</h3>
+    <div id="leadModal" class="fixed inset-0 hidden items-center justify-center bg-slate-900/70 backdrop-blur-sm z-50 px-4" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="privacyNote">
+        <div class="relative bg-white dark:bg-slate-900 pt-6 pb-7 md:pt-7 md:pb-8 px-6 md:px-8 rounded-2xl w-full max-w-lg shadow-2xl ring-1 ring-slate-200 dark:ring-slate-700 overflow-hidden">
+            <span class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blue-600 via-indigo-500 to-cyan-500"></span>
+            <button onclick="closeModal()" class="absolute top-3 right-3 text-gray-400 hover:text-red-500 text-2xl font-bold leading-none" aria-label="Close modal">&times;</button>
+            <div class="flex flex-col items-center text-center mb-4">
+                <div class="mb-3 flex justify-center">
+                    <img src="{{ asset('logo/mstech.png') }}" alt="MSTECH" class="h-14 w-auto drop-shadow-sm" />
+                </div>
+                <p class="mt-2 text-xs md:text-sm text-slate-500 dark:text-slate-400 max-w-sm">Fill out the form and our maintenance support team will respond promptly.</p>
+            </div>
             <form method="POST" action="{{ route('form.store') }}" class="space-y-4" autocomplete="off">
                 @csrf
                 <div>
                     <label class="block text-sm mb-1 font-medium" for="name">Full Name</label>
-                    <input name="name" id="name" type="text" required maxlength="255"
-                        class="w-full px-4 py-3 border rounded-lg bg-white border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    <input name="name" id="name" type="text" required maxlength="255" value="{{ old('name') }}"
+                        class="w-full px-4 py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-black {{ $errors->has('name') ? 'border-red-400' : 'border-slate-300' }}" />
+                    @error('name')<p class="mt-1 text-xs text-red-600">{{ $message }}</p>@enderror
                 </div>
                 <div>
                     <label class="block text-sm mb-1 font-medium" for="line_of_business">Line of Business</label>
-                    <input name="line_of_business" id="line_of_business" type="text" required maxlength="255"
-                        class="w-full px-4 py-3 border rounded-lg bg-white border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    <input name="line_of_business" id="line_of_business" type="text" required maxlength="255" value="{{ old('line_of_business') }}"
+                        class="w-full px-4 py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-black {{ $errors->has('line_of_business') ? 'border-red-400' : 'border-slate-300' }}" />
+                    @error('line_of_business')<p class="mt-1 text-xs text-red-600">{{ $message }}</p>@enderror
                 </div>
                 <div class="grid sm:grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-sm mb-1 font-medium" for="company">Company</label>
-                        <input name="company" id="company" type="text" required maxlength="255"
-                            class="w-full px-4 py-3 border rounded-lg bg-white border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                        <label class="block text-sm mb-1 font-medium" for="company_name">Company</label>
+                        <input name="company_name" id="company_name" type="text" maxlength="255" value="{{ old('company_name') }}"
+                            class="w-full px-4 py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-black {{ $errors->has('company_name') ? 'border-red-400' : 'border-slate-300' }}" />
+                        @error('company_name')<p class="mt-1 text-xs text-red-600">{{ $message }}</p>@enderror
                     </div>
                     <div>
-                        <label class="block text-sm mb-1 font-medium" for="phone">Phone</label>
-                        <input name="phone" id="phone" type="text" required maxlength="20"
-                            class="w-full px-4 py-3 border rounded-lg bg-white border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                        <label class="block text-sm mb-1 font-medium" for="phone_number">Phone Number</label>
+                        <input name="phone_number" id="phone_number" type="text" required maxlength="20" value="{{ old('phone_number') }}"
+                            class="w-full px-4 py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-black {{ $errors->has('phone_number') ? 'border-red-400' : 'border-slate-300' }}" />
+                        @error('phone_number')<p class="mt-1 text-xs text-red-600">{{ $message }}</p>@enderror
                     </div>
                 </div>
                 <div>
+                    <label class="block text-sm mb-1 font-medium" for="job_title">Job Title (Optional)</label>
+                    <input name="job_title" id="job_title" type="text" maxlength="255" value="{{ old('job_title') }}"
+                        class="w-full px-4 py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-black {{ $errors->has('job_title') ? 'border-red-400' : 'border-slate-300' }}" />
+                    @error('job_title')<p class="mt-1 text-xs text-red-600">{{ $message }}</p>@enderror
+                </div>
+                <div>
                     <label class="block text-sm mb-1 font-medium" for="email">Work Email</label>
-                    <input name="email" id="email" type="email" required maxlength="255"
-                        class="w-full px-4 py-3 border rounded-lg bg-white border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    <input name="email" id="email" type="email" required maxlength="255" value="{{ old('email') }}"
+                        class="w-full px-4 py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-black {{ $errors->has('email') ? 'border-red-400' : 'border-slate-300' }}" />
+                    @error('email')<p class="mt-1 text-xs text-red-600">{{ $message }}</p>@enderror
+                </div>
+                <div id="privacyNote" class="text-[11px] leading-snug text-slate-500 dark:text-slate-400 flex gap-2 pt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 12.75v-2.25m0 6.75h.008v.008H12v-.008z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12c0 4.636-3.582 8.455-8.138 8.962a1.04 1.04 0 0 1-.724-.217L12 20.25l-.138.495a1.04 1.04 0 0 1-.724.217C6.582 20.455 3 16.636 3 12V7.64a1 1 0 0 1 .553-.894l8-4a1 1 0 0 1 .894 0l8 4A1 1 0 0 1 21 7.64V12z"/></svg>
+                    <span>Your information is used only to respond to this inquiry. We do not sell, share, or use your data for unrelated purposes.</span>
                 </div>
                 <div class="flex items-center justify-between pt-2">
                     <label class="flex items-center gap-2 text-xs text-gray-600"><input type="checkbox"
                             class="rounded border-slate-300" /> Subscribe</label>
-                    <button type="submit"
-                        class="px-6 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 shadow">Submit</button>
+                    <button type="submit" class="group px-6 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 shadow flex items-center gap-2">
+                        <span>Submit</span>
+                        <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
+                    </button>
                 </div>
             </form>
         </div>
@@ -301,33 +319,18 @@
         function openModal() {
             modal.classList.remove('hidden');
             modal.classList.add('flex');
-            setTimeout(()=> nameInput?.focus(), 60);
+            setTimeout(()=> nameInput?.focus(), 50);
         }
         function closeModal() {
             modal.classList.add('hidden');
             modal.classList.remove('flex');
-            // mark dismissed for this session
-            sessionStorage.setItem('leadModalDismissed', '1');
         }
         window.openModal = openModal; window.closeModal = closeModal;
         modal.addEventListener('mousedown', e => { if (e.target === modal) { closeModal(); } });
-
-        // Auto-open modal on first visit of the session (unless already submitted or dismissed)
         @if(!session('success'))
-        if(!sessionStorage.getItem('leadModalDismissed')){
-            // slight delay so page paints first
-            setTimeout(openModal, 500);
-        }
+        document.addEventListener('DOMContentLoaded', () => openModal());
         @endif
-
-        // When form submits successfully (handled server-side), prevent re-show
-        // We set the flag optimistically on submit too
-        const leadForm = modal.querySelector('form');
-        leadForm?.addEventListener('submit', ()=>{
-            sessionStorage.setItem('leadModalDismissed','1');
-        });
-
-        // Mobile menu
+        //Mobile Menu
         const mobileToggle = document.getElementById('mobileToggle');
         const mobileMenu = document.getElementById('mobileMenu');
         mobileMenu.innerHTML = `

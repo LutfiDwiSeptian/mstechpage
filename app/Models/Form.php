@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Form extends Model
 {
-    // Using the actual column name present in the database: line_of_business
-    protected $fillable = ['name', 'line_of_business', 'email', 'phone', 'company'];
+    protected $table = 'posts';
+    protected $fillable = ['name', 'line_of_business','company_name','job_title','email', 'phone_number'];
+    protected $attributes = [
+        'company_name' => ''
+    ];
 }

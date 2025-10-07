@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Form;
 
 class AdminController extends Controller
 {
@@ -12,32 +13,30 @@ class AdminController extends Controller
         return view('admin.login');
     }
 
-    /**
-     * Handle an admin login request.
-     */
     public function login(Request $request)
     {
+        // Validate incoming credentials
         $credentials = $request->validate([
-            'email' => ['required', 'email'],
+            'email' => ['required','email'],
             'password' => ['required'],
         ]);
 
         $remember = $request->boolean('remember');
 
+        // Attempt authentication once
         if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
-            // Redirect to intended page or admin dashboard
-            return redirect()->intended('/admindashboard');
+            return redirect()->intended(route('admin.dashboard'));
         }
 
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ])->onlyInput('email');
+        // Failed authentication: send generic error (avoid exposing which field failed)
+        return back()
+            ->withErrors([
+                'email' => 'Invalid credentials provided.',
+            ])
+            ->onlyInput('email');
     }
 
-    /**
-     * Log the user out.
-     */
     public function logout(Request $request)
     {
         Auth::logout();
@@ -48,6 +47,8 @@ class AdminController extends Controller
 
     public function admindashboard()
     {
-        return view('admin.dashboard');
+        // Fetch latest entries from posts table (Form model binds to posts)
+        $forms = Form::query()->latest()->paginate(25);
+        return view('admin.dashboard', compact('forms'));
     }
 }
