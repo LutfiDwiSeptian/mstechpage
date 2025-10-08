@@ -140,17 +140,17 @@
         <div class="absolute inset-0 pointer-events-none opacity-40"
              style="background-image: radial-gradient(circle at 20% 30%, rgba(37,99,235,.25), transparent 60%), radial-gradient(circle at 80% 70%, rgba(14,165,233,.25), transparent 55%);">
         </div>
-        <div class="max-w-5xl mx-auto px-5 relative fade-up">
+        <div class="max-w-3xl mx-auto px-5 relative fade-up">
             <div class="text-center mb-10">
                 <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mb-3">Download Company Profile</h2>
                 <p class="text-slate-600 text-sm md:text-base max-w-2xl mx-auto">
-                    Dapatkan profil perusahaan kami dalam format PDF untuk referensi lebih lanjut mengenai layanan & kapabilitas MSTECH.
+                    Grab our company profile in pdf format for more reference regarding our service & capabilities.
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-6 md:gap-8">
-                <div class="md:col-span-2">
-                    <div class="group relative h-full rounded-2xl border bg-white border-slate-200 shadow-sm overflow-hidden flex flex-col md:flex-row">
+            <div class="flex justify-center">
+                <div class="w-full">
+                    <div class="group relative rounded-2xl border bg-white border-slate-200 shadow-sm overflow-hidden flex flex-col md:flex-row">
                         <div class="w-full md:w-52 aspect-[4/3] md:aspect-auto bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center">
                             <div class="text-white flex flex-col items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14 mb-2 opacity-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.4">
@@ -166,7 +166,6 @@
                                 <li class="flex items-center gap-2"><span class="text-blue-600">•</span> Language: English</li>
                             </ul>
                             <div class="mt-auto flex flex-wrap gap-3 md:justify-center">
-                                {{-- Pastikan file berada di: public/files/mstech_profiles.pdf --}}
                                 <a href="{{ asset('files/mstech_profiles.pdf') }}"
                                    download="MSTECH_Company_Profile.pdf"
                                    type="application/pdf"
@@ -195,6 +194,8 @@
                         <span class="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-600 via-indigo-500 to-cyan-500"></span>
                     </div>
                 </div>
+            </div>
+        </div>
     </section>
     <!-- Capabilities -->
     <section id="capabilities" class="py-16 bg-white border-t border-slate-200">
