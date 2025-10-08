@@ -184,12 +184,6 @@
                                     Preview
                                 </a>
                             </div>
-                            @php
-                                $fileExists = file_exists(public_path('files/mstech_profiles.pdf'));
-                            @endphp
-                            @unless($fileExists)
-                                <p class="mt-4 text-xs text-red-600">File belum tersedia. Letakkan file di folder public/files/ dengan nama: mstech_profiles.pdf</p>
-                            @endunless
                         </div>
                         <span class="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-600 via-indigo-500 to-cyan-500"></span>
                     </div>
