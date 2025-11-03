@@ -263,51 +263,51 @@
 
     <!-- Modal -->
     <div id="leadModal" class="fixed inset-0 hidden items-center justify-center bg-slate-700/50 backdrop-blur-sm z-50 px-3" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="privacyNote">
-        <div class="relative bg-gradient-to-br from-white via-blue-50 to-blue-100 dark:from-slate-800 dark:via-slate-800 dark:to-slate-900 pt-5 pb-6 md:pt-6 md:pb-7 px-5 md:px-6 rounded-xl w-full max-w-md shadow-xl ring-1 ring-blue-200 dark:ring-slate-700 overflow-hidden text-sm text-black">
+        <div class="relative bg-white dark:bg-white pt-5 pb-6 md:pt-6 md:pb-7 px-5 md:px-6 rounded-xl w-full max-w-md shadow-xl ring-1 ring-slate-200 overflow-hidden text-sm text-black">
             <span class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blue-600 via-indigo-500 to-cyan-500"></span>
             <button onclick="closeModal()" class="absolute top-2.5 right-2.5 text-gray-400 hover:text-red-500 text-xl font-bold leading-none" aria-label="Close modal">&times;</button>
             <div class="flex flex-col items-center text-center mb-3">
                 <div class="mb-2 flex justify-center">
                     <img src="{{ asset('logo/mstech.png') }}" alt="MSTECH" class="h-12 w-auto drop-shadow-sm" />
                 </div>
-                <p class="mt-1 text-[11px] md:text-xs max-w-xs text-white">Your data will only be used for collection purposes and won’t be shared or used for anything else.</p>
+                <p class="mt-1 text-[11px] md:text-xs max-w-xs text-black">Your data will only be used for collection purposes and won’t be shared or used for anything else.</p>
             </div>
             <form method="POST" action="{{ route('form.store') }}" class="space-y-4 text-black" autocomplete="off">
                 @csrf
                 <div>
-                    <label class="block text-sm mb-1 font-medium text-white" for="name">Full Name</label>
+                    <label class="block text-sm mb-1 font-medium text-black" for="name">Full Name</label>
                     <input name="name" id="name" type="text" required maxlength="255" value="{{ old('name') }}"
                         class="w-full px-3 py-2.5 border rounded-md bg-white text-black placeholder:text-black focus:outline-none focus:ring-2 focus:ring-blue-500 {{ $errors->has('name') ? 'border-red-400' : 'border-slate-300' }}" />
                     @error('name')<p class="mt-1 text-xs text-red-600">{{ $message }}</p>@enderror
                 </div>
                 <div>
-                    <label class="block text-sm mb-1 font-medium text-white" for="line_of_business">Line of Business</label>
+                    <label class="block text-sm mb-1 font-medium text-black" for="line_of_business">Line of Business</label>
                     <input name="line_of_business" id="line_of_business" type="text" required maxlength="255" value="{{ old('line_of_business') }}"
                         class="w-full px-3 py-2.5 border rounded-md bg-white text-black placeholder:text-black focus:outline-none focus:ring-2 focus:ring-blue-500 {{ $errors->has('line_of_business') ? 'border-red-400' : 'border-slate-300' }}" />
                     @error('line_of_business')<p class="mt-1 text-xs text-red-600">{{ $message }}</p>@enderror
                 </div>
                 <div class="grid sm:grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-sm mb-1 font-medium text-white" for="company_name">Company</label>
+                        <label class="block text-sm mb-1 font-medium text-black" for="company_name">Company</label>
                         <input name="company_name" id="company_name" type="text" maxlength="255" value="{{ old('company_name') }}"
                             class="w-full px-3 py-2.5 border rounded-md bg-white text-black placeholder:text-black focus:outline-none focus:ring-2 focus:ring-blue-500 {{ $errors->has('company_name') ? 'border-red-400' : 'border-slate-300' }}" />
                         @error('company_name')<p class="mt-1 text-xs text-red-600">{{ $message }}</p>@enderror
                     </div>
                     <div>
-                        <label class="block text-sm mb-1 font-medium text-white" for="phone_number">Phone Number</label>
+                        <label class="block text-sm mb-1 font-medium text-black" for="phone_number">Phone Number</label>
                         <input name="phone_number" id="phone_number" type="text" required maxlength="20" value="{{ old('phone_number') }}"
                             class="w-full px-3 py-2.5 border rounded-md bg-white text-black placeholder:text-black focus:outline-none focus:ring-2 focus:ring-blue-500 {{ $errors->has('phone_number') ? 'border-red-400' : 'border-slate-300' }}" />
                         @error('phone_number')<p class="mt-1 text-xs text-red-600">{{ $message }}</p>@enderror
                     </div>
                 </div>
                 <div>
-                    <label class="block text-sm mb-1 font-medium text-white" for="job_title">Job Title</label>
+                    <label class="block text-sm mb-1 font-medium text-black" for="job_title">Job Title</label>
                     <input name="job_title" id="job_title" type="text" maxlength="255" value="{{ old('job_title') }}"
                         class="w-full px-3 py-2.5 border rounded-md bg-white text-black placeholder:text-black focus:outline-none focus:ring-2 focus:ring-blue-500 {{ $errors->has('job_title') ? 'border-red-400' : 'border-slate-300' }}" />
                     @error('job_title')<p class="mt-1 text-xs text-red-600">{{ $message }}</p>@enderror
                 </div>
                 <div>
-                    <label class="block text-sm mb-1 font-medium text-white" for="email">Work Email</label>
+                    <label class="block text-sm mb-1 font-medium text-black" for="email">Work Email</label>
                     <input name="email" id="email" type="email" required maxlength="255" value="{{ old('email') }}"
                         class="w-full px-3 py-2.5 border rounded-md bg-white text-black placeholder:text-black focus:outline-none focus:ring-2 focus:ring-blue-500 {{ $errors->has('email') ? 'border-red-400' : 'border-slate-300' }}" />
                     @error('email')<p class="mt-1 text-xs text-red-600">{{ $message }}</p>@enderror
