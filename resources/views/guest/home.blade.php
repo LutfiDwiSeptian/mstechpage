@@ -72,20 +72,20 @@
         </div>
         <div id="mobileMenu" class="md:hidden bg-white text-[var(--c-text)] border-b border-slate-200"></div>
     </nav>
-    <section class="pt-28 md:pt-32 pb-16">
+    <section class="pt-28 md:pt-32 pb-16 bg-white text-black dark:bg-white dark:text-black">
         <div class="max-w-6xl mx-auto px-5 grid lg:grid-cols-2 gap-10 items-start">
             <div class="space-y-7 fade-up">
-                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight">
-                    Precision. Reliability.<br class="hidden sm:block" /> Excellence in MRO.
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight text-black">
+                    Precision. Reliability.<br class="hidden sm:block"/> Excellence in MRO.
                 </h1>
-                <p class="max-w-lg text-sm md:text-base text-gray-200">
+                <p class="max-w-lg text-sm md:text-base text-black"></p>
                     MSTECH delivers world-class aircraft Maintenance, Repair, and Overhaul services —
                     combining technical expertise, safety commitment, and engineering excellence to keep every flight
                     dependable.
                 </p>
                 <div class="flex flex-wrap gap-3">
                     <a href="mailto:office@mstech-pt.com"
-                        class="inline-flex items-center gap-2 bg-[var(--c-brand)] hover:bg-[var(--c-brand-dark)] text-white font-semibold px-6 py-3 rounded-lg text-sm shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
+                        class="inline-flex items-center gap-2 bg-[var(--c-brand)] hover:bg-[var(--c-brand-dark)] text-black font-semibold px-6 py-3 rounded-lg text-sm shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="icon icon-tabler icons-tabler-outline icon-tabler-mailbox">
