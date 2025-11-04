@@ -85,7 +85,7 @@
                 </p>
                 <div class="flex flex-wrap gap-3">
                     <a href="mailto:office@mstech-pt.com"
-                        class="inline-flex items-center gap-2 bg-[var(--c-brand)] hover:bg-[var(--c-brand-dark)] text-black font-semibold px-6 py-3 rounded-lg text-sm shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
+                        class="inline-flex items-center gap-2 bg-[var(--c-brand)] hover:bg-[var(--c-brand-dark)] text-white font-semibold px-6 py-3 rounded-lg text-sm shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="icon icon-tabler icons-tabler-outline icon-tabler-mailbox">
